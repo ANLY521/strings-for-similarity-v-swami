@@ -38,6 +38,7 @@ References:
 
 
 Example on how I am running the code on the terminal:
+
 `(base) swamivenkat@Swamis-MacBook-Pro strings-for-similarity-v-swami % python sts_pearson.py`
 
 **TODO:** Fill in the correlations. Expected output for DEV is provided; it is ok if your actual result
