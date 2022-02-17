@@ -11,8 +11,25 @@ def symmetrical_nist(text_pair):
     :param text_pair: iterable to two strings to compare
     :return: a float
     """
-    nist_1 = 0.0
-    nist_2 = 0.0
+    t1,t2 = text_pair
+
+    # input tokenized text
+    t1_toks = word_tokenize(t1.lower())
+    t2_toks = word_tokenize(t2.lower())
+
+    # try / except for each side because of ZeroDivision Error
+    # 0.0 is lowest score - give that if ZeroDivision Error
+    try:
+        nist_1 = sentence_nist([t1_toks, ], t2_toks)
+    except ZeroDivisionError:
+        # print(f"\n\n\nno NIST, {i}")
+        nist_1 = 0.0
+
+    try:
+        nist_2 = sentence_nist([t2_toks, ], t1_toks)
+    except ZeroDivisionError:
+        # print(f"\n\n\nno NIST, {i}")
+        nist_2 = 0.0
 
     return nist_1 + nist_2
 
@@ -35,7 +52,7 @@ def main(sts_data):
     scores = []
     for label,text_pair in sample_data:
         print(label)
-        print(f"Sentences: {texts[0]}\t{texts[1]}")
+        print(f"Sentences: {text_pair[0]}\t{text_pair[1]}")
         # TODO 2: Calculate NIST for each pair of sentences
         # Define the function symmetrical_nist
 
@@ -46,15 +63,23 @@ def main(sts_data):
     # This assertion verifies that symmetrical_nist is symmetrical
     # if the assertion holds, execution continues. If it does not, the program crashes
     first_pair = texts[0]
-    print(first_pair)
     text_a, text_b = first_pair
     nist_ab = symmetrical_nist((text_a, text_b))
     nist_ba = symmetrical_nist((text_b, text_a))
     assert nist_ab == nist_ba, f"Symmetrical NIST is not symmetrical! Got {nist_ab} and {nist_ba}"
 
     # TODO 3: find and print the sentences from the sample with the highest and lowest scores
+    min_score_index = np.argmin(scores)
+    min_score = scores[min_score_index]
+    print(f"Lowest score: {min_score}")
+    print(sample_text[min_score_index])
+    assert min_score == symmetrical_nist(sample_text[min_score_index])
 
-
+    max_score_index = np.argmax(scores)
+    max_score = scores[max_score_index]
+    print(f"Highest score: {max_score}")
+    print(sample_text[max_score_index])
+    assert max_score == symmetrical_nist(sample_text[max_score_index])
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
