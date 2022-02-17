@@ -10,6 +10,15 @@ Data is from the [STS benchmark](http://ixa2.si.ehu.es/stswiki/index.php/STSbenc
 **TODO:**
 Describe each metric in ~ 1 sentence
 
+NIST
+
+The NIST metric is derived from the BLEU metric, where the n-gram is taken into account. This in return gives more credability to a system if the n-gram match is "difficult" and less credability to a n-gram which is "easy." A suggested usage is when the word "and that" matches correctly would be weighed higher whereas "upon therefore" would be matched lower even if the meaning is similar.
+
+BLEU
+
+The BLEU metric  averages the precision a n-gram from n=1 to n=4, and applies a len penalty if
+the generated sentence is shorter than the best matching. A suggested usage is when you have two sentences "the the the the the the" and "the cat is on the mat." It would compare the n-grams from 1 to 4 and determine the length penality and how true the comparison is, all while being averaged.
+
 **TODO:** Fill in the correlations. Expected output for DEV is provided; it is ok if your actual result
 varies slightly due to preprocessing/system difference, but the difference should be quite small.
 
