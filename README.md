@@ -36,6 +36,10 @@ References:
 1. https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.536.5232&rep=rep1&type=pdf
 2. https://en.wikipedia.org/wiki/Edit_distance
 
+
+Example on how I am running the code on the terminal:
+(base) swamivenkat@Swamis-MacBook-Pro strings-for-similarity-v-swami % python sts_pearson.py
+
 **TODO:** Fill in the correlations. Expected output for DEV is provided; it is ok if your actual result
 varies slightly due to preprocessing/system difference, but the difference should be quite small.
 
