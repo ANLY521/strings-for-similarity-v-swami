@@ -33,8 +33,8 @@ Edit Dist
 The Edit Distance metric is a process of mathetically understanding how different two strings are to one another by counting the minimum number of operations required to transform one string into the other. A sample usage would be in computational biology, where you would want to figure out if shorter strings match in complex and larger biological strings.
 
 References:
-https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.536.5232&rep=rep1&type=pdf
-https://en.wikipedia.org/wiki/Edit_distance
+1. https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.536.5232&rep=rep1&type=pdf
+2. https://en.wikipedia.org/wiki/Edit_distance
 
 **TODO:** Fill in the correlations. Expected output for DEV is provided; it is ok if your actual result
 varies slightly due to preprocessing/system difference, but the difference should be quite small.
