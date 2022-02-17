@@ -19,6 +19,19 @@ BLEU
 The BLEU metric  averages the precision a n-gram from n=1 to n=4, and applies a len penalty if
 the generated sentence is shorter than the best matching. A suggested usage is when you have two sentences "the the the the the the" and "the cat is on the mat." It would compare the n-grams from 1 to 4 and determine the length penality and how true the comparison is, all while being averaged.
 
+
+WER
+
+The WER metric is derived from the Levenshtein distance, and is primarly used to compare different structures as well as model improvments within a structure. It is calculated with the formula Word Error Rate = (Substitutions + Insertions + Deletions) / Number of Words Spoken. A suggested example would be its use in calculating Automatic Speech Recognition (ASR), where the WER would be used as a metric to see how well a system or software did text transcription.
+
+LCS
+
+The LCS metric is as its name suggest, find the longest common substring and the more similar the two strings are. It is done by finding all substrings of one string, X, of length n. A suggest usage would be using it as a base metric to compare various other/new string similary metrics.
+
+References:
+https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.536.5232&rep=rep1&type=pdf
+https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.330.5236&rep=rep1&type=pdf
+
 **TODO:** Fill in the correlations. Expected output for DEV is provided; it is ok if your actual result
 varies slightly due to preprocessing/system difference, but the difference should be quite small.
 
